@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Advancing Your Data Analytics</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Lisa Callas" />
+    <meta name="date" content="2021-12-14" />
+    <script src="libs/header-attrs-2.11/header-attrs.js"></script>
+    <link href="libs/remark-css-0.0.1/default.css" rel="stylesheet" />
+    <link href="libs/remark-css-0.0.1/default-fonts.css" rel="stylesheet" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+# Advancing Your Data Analytics
+## …
+### Lisa Callas
+### December 14, 2021
+
+---
+
+# Webinar Goals:
+
+## Hour 1
+
+- To understand what data analytics is and how the various tools and methodologies relate to the definition
+
+- To understand the difference between a coding approach and a non-coding approach and the pros and cons of each
+
+- To explore some examples of analyses and visualizations that can be generated using advanced analytics software (RStudio)
+
+## Hour 2:
+- To practice hands-on coding in a workshop environment using RStudio
+
+---
+class: center, top
+# POLL
+##Where do you see yourself?
+
+###1. Beginner
+###2. Confident
+###3. Skilled
+###4. Advanced
+---
+class: center, middle
+
+# What is data analytics?
+
+The process of analyzing raw data to find trends and answer questions
+---
+#Examples:
+How many citizens used the City recreation centres last month?
+
+Is there a gender pay gap in the organization?
+
+Did the business area achieve their performance targets?
+
+Which safety inspections are high risk and should be prioritized?
+
+Are there any suspicious employee expense claims?
+
+What are the key risks the organization may be facing in the next 5 years?
+
+Why does the business permitting process take so long?
+
+Are City services distributed equitably to all citizens?
+
+
+---
+class: center, middle
+
+#* ...so what is advanced analytics?*
+
+Refers to the sophistication or complexity of the tools and techniques used for data analysis.
+
+---
+
+class: left, middle
+
+# Basic Analysis
+
+### - Spreadsheets (Excel, Google Sheets)
+### - Column/row summaries and calculations
+### - Grouping and sorting
+### - Basic calculation and functions (sum, average)
+### - Templated graphs and charts for data exploration
+
+.center[![spectrum](img/Spectrum-Green.png)]
+
+---
+class: left, middle
+
+# Mid-Level Analysis
+
+### - Out-of-the-box analytic software
+(Tableau, Excel Power Query, Google Data Studio, Stata, ACL)
+### - Built-in complex analytic functions
+### - Grouping and sorting
+### - Optional or recommended coding skills
+
+.center[![spectrum](img/Spectrum-orange.png)]
+---
+#Example:
+.center[![data](img/Assessment_Sheet.png)]
+---
+# With Power Query:
+
+.center[![PQ](img/PQ.png)]
+---
+
+class: left, middle
+
+# Advanced Analysis
+
+### - Programming language &amp; coding (Python, R, SQL)
+### - User or crowd-sourced function and packages
+### - Full customizable
+### - Fully replicable and documented
+
+.center[![spectrum](img/Spectrum-red.png)]
+---
+#In RStudio:
+
+
+
+
+```r
+data &lt;- read_csv("PA_Data.csv")
+
+data %&gt;% 
+  filter(`Assessed Value` &gt; 1000000,
+         `Assessment Class 1` == "RESIDENTIAL") %&gt;% 
+  summarize(Total=n())
+```
+
+```
+## # A tibble: 1 x 1
+##   Total
+##   &lt;int&gt;
+## 1  4299
+```
+
+---
+#Excel Spreadsheet
+.center[![data](img/Assessment_Sheet.png)]
+---
+#Excel Power Query
+.center[![PQ](img/PQ.png)]
+---
+#RStudio
+
+```r
+data &lt;- read_csv("PA_Data.csv")
+
+data %&gt;% 
+  filter(`Assessed Value` &gt; 1000000,
+         `Assessment Class 1` == "RESIDENTIAL") %&gt;% 
+  summarize(Total=n())
+```
+
+```
+## # A tibble: 1 x 1
+##   Total
+##   &lt;int&gt;
+## 1  4299
+```
+
+---
+# Mindset Shift
+.center[![Doing](img/bakers_2.png)]
+
+
+---
+## *Why should I learn to code?*
+
+
+ - Development of logic and problem solving skills
+ 
+ 
+ - Deeper toolbox
+ 
+ 
+ - Documentation
+ 
+ 
+ - Advancement
+
+---
+
+class:top, center
+#Scenario
+
+---
+# Picking a Language
+
+&lt;img src="https://d33wubrfki0l68.cloudfront.net/57299a1dcd979c623325f11bf5e5ce60f3d4eb00/e4602/wp-content/uploads/2018/10/black.png" width="50%" style="display: block; margin: auto auto auto 0;" /&gt;
+
+
+&lt;img src="https://www.python.org/static/community_logos/python-logo-master-v3-TM-flattened.png" width="60%" style="display: block; margin: auto 0 auto auto;" /&gt;
+
+---
+class:top, left
+# Data Wrangling
+
+.centre[![cowboy](img/data_cowboy.png)]
+
+.footnote[ 
+.small[
+*Artwork by @allison_horst*
+]]
+---
+# Tidy Data
+
+.center[![tidy1](img/tidydata_2.jpg)]
+
+.footnote[ 
+.small[
+*Artwork by @allison_horst*
+]]
+---
+# Tidy Data
+
+.center[![tidy2](img/tidydata_1.jpg)]
+
+.footnote[ 
+.small[
+*Artwork by @allison_horst*
+]]
+---
+
+# Untidy Data
+
+.left[![spectrum](img/multi-tab.png)]
+---
+
+# More Untidy Data
+.center[![spectrum](img/multi-header.png)]
+---
+# Untidy Data
+
+
+
+I imported my untidy data from a Google Sheet without making any changes to it
+
+```r
+FTE_data
+```
+
+```
+## # A tibble: 4 x 6
+##   Bus_Area               `2017` `2018` `2019` `2020` `2021`
+##   &lt;chr&gt;                   &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;
+## 1 Operations              9331   9510   9875   9926   9954 
+## 2 Financial Services       187.   190.   198.   199.   199.
+## 3 Human Resources          131.   133.   138.   139.   139.
+## 4 Information Technology   103.   105.   109.   109.   109.
+```
+---
+# Tidy!
+
+
+```r
+long_data &lt;- FTE_data %&gt;% 
+                pivot_longer(cols = -c(Bus_Area), 
+                             names_to = "Year", 
+                             values_to= "FTE")
+
+head(long_data, 10)
+```
+
+```
+## # A tibble: 10 x 3
+##    Bus_Area           Year    FTE
+##    &lt;chr&gt;              &lt;chr&gt; &lt;dbl&gt;
+##  1 Operations         2017  9331 
+##  2 Operations         2018  9510 
+##  3 Operations         2019  9875 
+##  4 Operations         2020  9926 
+##  5 Operations         2021  9954 
+##  6 Financial Services 2017   187.
+##  7 Financial Services 2018   190.
+##  8 Financial Services 2019   198.
+##  9 Financial Services 2020   199.
+## 10 Financial Services 2021   199.
+```
+---
+# How have costs changed?
+
+
+```r
+tidy_data %&gt;% 
+  group_by(Year) %&gt;% 
+  summarize(Budget= sum(Budget)) %&gt;% 
+
+ggplot(aes(x=Year, y=Budget, group=1))+
+  geom_line()-&gt;by_Year_line
+
+by_Year_line
+```
+
+![](Data_Analytics_Slides_files/figure-html/unnamed-chunk-9-1.png)&lt;!-- --&gt;
+---
+# By business area? 
+
+
+
+```r
+ggplot(tidy_data, aes(x=Year, y= Budget, group= Bus_Area, colour= Bus_Area))+
+  geom_line()
+```
+
+![](Data_Analytics_Slides_files/figure-html/unnamed-chunk-10-1.png)&lt;!-- --&gt;
+---
+# Those can be hard to see...
+
+
+
+```r
+ggplot(tidy_data, aes(x=Year, y= Budget, group= Bus_Area))+
+  geom_line()+
+  facet_wrap(~Bus_Area, ncol = 2, scales = "free")
+```
+
+![](Data_Analytics_Slides_files/figure-html/unnamed-chunk-11-1.png)&lt;!-- --&gt;
+
+
+---
+# Plots and Graphs
+- All plots and graphs are fully customizable. 
+
+- Because they are built on code rather than manual manipulation (like Excel), 
+if the data changes, it is very simple to update visualizations.
+
+
+
+.center[![graphexample](img/graphexample.png)]
+
+---
+# Relationships
+- Network diagrams plot out how closely related different entities are.  
+
+- We can make a diagram that visualizes how often staff work with each other.
+
+.center[![working relationships](img/WR2.png)]
+---
+# Maps
+- You can plot locations on a map with R.
+
+- This is an map of all sandbox locations in the City of Edmonton.
+
+.center[![sandboxes](img/sandboxes.png)]
+
+---
+# Next Steps...
+
+## Make a learning plan!
+
+ - Find a mentor
+ 
+ - Find an online class
+ 
+ - Find an in-person class
+ 
+ - Find a supportive user group
+
+---
+
+# Resources
+- R for Data Science (online book)
+
+- RStudio Cheat Sheets
+
+- Twitter (@rstudiotips, @rweekly_org, @R-LadiesGlobal, @WeAreRLadies, @drob, @Rbloggers, @RLangTip, #rstats)
+
+- YouTube
+
+- Stack Overflow
+
+- RStudio education
+
+ 
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script src="macro.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
