@@ -32,7 +32,7 @@ output:
 
 ---
 class: center, top
-# POLL
+# __POLL__
 ##Where do you see yourself?
 
 ###1. Beginner
@@ -93,7 +93,7 @@ class: left, middle
 ### - Out-of-the-box analytic software
 (Tableau, Excel Power Query, Google Data Studio, Stata, ACL)
 ### - Built-in complex analytic functions
-### - Grouping and sorting
+### - Multi-factor grouping and segmenting
 ### - Optional or recommended coding skills
 
 .center[![spectrum](img/Spectrum-orange.png)]
@@ -110,10 +110,10 @@ class: left, middle
 
 # Advanced Analysis
 
-### - Programming language & coding (Python, R, SQL)
-### - User or crowd-sourced function and packages
-### - Full customizable
-### - Fully replicable and documented
+### - Programming language & coding (Python, R, SQL, etc)
+### - User or crowd-sourced functions and packages
+### - Complex data management and analytics (big, messy datasets, predictive analyses)
+### - Fully reproduceable and documented
 
 .center[![spectrum](img/Spectrum-red.png)]
 ---
@@ -152,8 +152,13 @@ data %>%
 ```
 
 ---
+class: center, middle
 # Mindset Shift
-.center[![Doing](img/bakers_2.png)]
+
+---
+
+class: center, middle
+# Attendance Check
 
 
 ---
@@ -173,7 +178,7 @@ data %>%
 
 ---
 
-class:top, center
+class: center, middle
 #Scenario
 
 ---
@@ -373,5 +378,11 @@ if the data changes, it is very simple to update visualizations.
 - Stack Overflow
 
 - RStudio education
+
+---
+
+class: center, middle
+
+# Final Attendance Check
 
  
